@@ -9,7 +9,8 @@ import {
   Calendar, 
   MapPin, 
   Compass, 
-  ArrowLeft 
+  ArrowLeft,
+  ExternalLink
 } from 'lucide-react';
 import { Itinerary } from '../types';
 import { DaySection } from './DaySection';
@@ -155,9 +156,23 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
           <span>{itinerary.pace}</span>
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 mb-3 text-balance">
-          {itinerary.cityName}
-        </h1>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <h1 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 text-balance">
+            {itinerary.cityName}
+          </h1>
+
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(itinerary.cityName + ', India')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition-colors"
+            title={`View ${itinerary.cityName} on Google Maps`}
+          >
+            <MapPin className="w-3.5 h-3.5 text-amber-600" />
+            <span>Open in Maps</span>
+            <ExternalLink className="w-3 h-3 text-stone-400" />
+          </a>
+        </div>
 
         <p className="text-base sm:text-lg font-medium text-amber-800/90 mb-4 font-display">
           {itinerary.tagline}

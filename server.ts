@@ -20,16 +20,38 @@ async function startServer() {
 
   // Initialize Gemini client on server-side
   let ai: GoogleGenAI | null = null;
-  if (process.env.GEMINI_API_KEY) {
-    ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build',
+  const rawGeminiKey = (process.env.GEMINI_API_KEY || '').trim();
+  const isValidGeminiKey = rawGeminiKey.length > 10 && rawGeminiKey !== 'MY_GEMINI_API_KEY';
+
+  if (isValidGeminiKey) {
+    try {
+      ai = new GoogleGenAI({
+        apiKey: rawGeminiKey,
+        httpOptions: {
+          headers: {
+            'User-Agent': 'aistudio-build',
+          },
         },
-      },
-    });
+      });
+      console.log('Gemini AI client successfully initialized with active API key.');
+    } catch (err) {
+      console.error('Failed to initialize Gemini AI client:', err);
+      ai = null;
+    }
+  } else {
+    console.log('Gemini API key not set or is placeholder. Using curated Indian planner engine.');
   }
+
+  // API Route: Configuration status
+  app.get('/api/config', (req, res) => {
+    const rawKey = (process.env.GEMINI_API_KEY || '').trim();
+    const hasGemini = rawKey.length > 10 && rawKey !== 'MY_GEMINI_API_KEY';
+    const mapsKey = process.env.GOOGLE_MAPS_API_KEY || process.env.VITE_GOOGLE_MAPS_API_KEY || '';
+    res.json({
+      geminiActive: hasGemini,
+      hasMapsKey: Boolean(mapsKey && mapsKey !== 'MY_GOOGLE_MAPS_API_KEY')
+    });
+  });
 
   // API Route: Generate Travel Itinerary
   app.post('/api/generate-itinerary', async (req, res) => {
@@ -55,26 +77,26 @@ async function startServer() {
       });
     }
 
-    // If Gemini client is available, try generating with gemini-3.8-flash
+    // If Gemini client is available, generate with gemini-3.8-flash
     if (ai) {
       try {
         const dayLabels = Array.from({ length: clampedDays }, (_, i) => `Day ${i + 1}`).join(', ');
         const prompt = `Create a realistic, highly specific, geographically sensible ${clampedDays}-day travel itinerary for: "${trimmedCity}" (India travel focus).
 Travel style/vibe: ${vibe}. Pace: ${pace}. Traveler: ${travelerType}.
 
-Requirements:
-1. Exactly ${clampedDays} distinct days: ${dayLabels}.
-2. Group activities geographically by neighborhood each day to avoid city traffic and chaotic backtracking.
-3. For each day, provide 4 to 5 timed items covering morning, midday/lunch, afternoon, and evening/dinner.
-4. Each schedule item must have an exact realistic time (e.g. "08:30 AM – 11:00 AM"), activity name, detailed helpful description (2-3 sentences), specific neighborhood/landmark, category (one of: culture, sightseeing, food, nature, shopping, relaxation), duration, cost estimate in Indian Rupees (₹ / INR), and an actionable local insider tip (e.g. queue shortcuts, photo spots, temple shoe-stand etiquette, photography permits).
-5. Provide local transit advice (metro lines, auto-rickshaws, Ola/Uber, or rented scooters), best time of year to visit, local currency (₹ INR), languages, estimated daily budget range in ₹ INR, 4 packing essentials tailored to this destination, and 3 iconic regional dishes/street foods with descriptions and where to try them.
+CRITICAL DESTINATION & MAP ACCURACY RULES:
+1. STRICT LOCATION INTEGRITY: Every attraction, temple, beach, monument, cafe, and market MUST be strictly situated within "${trimmedCity}, India". Do NOT invent or include places from other cities, states, or countries.
+2. MAP-PIN ACCURACY: In every activity's "location" property, write the EXACT physical landmark and neighborhood (e.g., in Mumbai: "Gateway of India, Colaba, Mumbai", "Chhatrapati Shivaji Maharaj Terminus, Fort, Mumbai", "Marine Drive Promenade, Churchgate, Mumbai", "Elephanta Caves, Gharapuri Island, Mumbai"). DO NOT use generic phrases like "City center" or "Central street".
+3. GEOGRAPHIC NEIGHBORHOOD CLUSTERING: Group each day's activities in the same geographic quadrant to avoid severe traffic and backtracking (e.g. Day 1 South Mumbai/Colaba, Day 2 Bandra/Worli, Day 3 Suburban beaches/island caves).
+4. SCHEDULE: Exactly ${clampedDays} distinct days: ${dayLabels}. 4 to 5 timed items per day (morning, lunch, afternoon, evening/sunset).
+5. LOCAL CONTEXT: Pricing in Indian Rupees (₹ / INR), local transit tips (local train lines, auto-rickshaws, metros, cabs), 4 packing essentials, and 3 iconic authentic regional dishes with specific iconic spots/restaurants where to try them.
 `;
 
         const response = await ai.models.generateContent({
           model: 'gemini-3.8-flash',
           contents: prompt,
           config: {
-            systemInstruction: 'You are an expert travel curator specializing in India and Incredible India journeys. Provide accurate, culturally immersive, beautifully paced 3-day itineraries with real venue names, authentic local food stops (thalis, chaat, iconic bakeries/dhabas), practical transit tips (auto-rickshaws, metros, cabs), and respectful cultural etiquette.',
+            systemInstruction: `You are an elite travel curator specializing in Incredible India journeys. You craft hyper-accurate, geographically optimized ${clampedDays}-day itineraries with authentic real-world venue names, historic institutions, local eateries (thalis, street chaat, legendary dhabas), transit tips, and genuine cultural etiquette. All locations MUST strictly belong to ${trimmedCity}, India.`,
             temperature: 0.7,
             responseMimeType: 'application/json',
             responseSchema: {

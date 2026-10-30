@@ -8,9 +8,13 @@ import {
   Tag, 
   FileEdit, 
   Save, 
-  DollarSign 
+  DollarSign,
+  Map as MapIcon,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { Activity, ActivityCategory } from '../types';
+import { getGoogleMapsUrl, getGoogleMapsEmbedUrl, formatMapsQuery } from '../utils/mapsHelper';
 
 interface ActivityCardProps {
   activity: Activity;
@@ -42,15 +46,21 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({
 }) => {
   const [isEditingNote, setIsEditingNote] = useState(false);
   const [noteText, setNoteText] = useState(userNote);
+  const [showMapPreview, setShowMapPreview] = useState(false);
 
   const categoryMeta = CATEGORY_STYLES[activity.category] || {
     label: activity.category || 'Experience',
     text: 'text-stone-700',
   };
 
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${activity.activity}, ${activity.location}, ${cityName}`
-  )}`;
+  const formattedQuery = formatMapsQuery(activity.activity, activity.location, cityName);
+  const googleMapsUrl = getGoogleMapsUrl(activity.activity, activity.location, cityName);
+  const embedMapsUrl = getGoogleMapsEmbedUrl(
+    activity.activity, 
+    activity.location, 
+    cityName, 
+    (import.meta as any).env?.VITE_GOOGLE_MAPS_API_KEY
+  );
 
   const handleSaveNote = () => {
     onSaveNote(activity.id, noteText);
@@ -109,7 +119,7 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({
           </div>
         </div>
 
-        {/* Title and Maps link */}
+        {/* Title and Maps actions */}
         <div className="flex items-start justify-between gap-4 mb-2">
           <h4
             className={`font-display text-lg sm:text-xl font-bold tracking-tight text-stone-900 ${
@@ -119,23 +129,78 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({
             {activity.activity}
           </h4>
 
-          <a
-            href={googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-stone-500 hover:text-amber-700 font-medium shrink-0 pt-1 transition-colors group"
-            title="Open location on Google Maps"
-          >
-            <span className="hidden sm:inline">Map</span>
-            <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
+          <div className="flex items-center gap-1.5 shrink-0 pt-0.5">
+            <button
+              onClick={() => setShowMapPreview(!showMapPreview)}
+              className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium border transition-colors cursor-pointer ${
+                showMapPreview
+                  ? 'bg-amber-100 text-amber-900 border-amber-300'
+                  : 'bg-stone-50 hover:bg-stone-100 text-stone-600 border-stone-200'
+              }`}
+              title="Toggle interactive map preview"
+            >
+              <MapIcon className="w-3.5 h-3.5 text-amber-600" />
+              <span className="hidden sm:inline">Preview</span>
+              {showMapPreview ? (
+                <ChevronUp className="w-3 h-3 text-stone-500" />
+              ) : (
+                <ChevronDown className="w-3 h-3 text-stone-500" />
+              )}
+            </button>
+
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200/80 transition-colors group"
+              title={`Open "${formattedQuery}" on Google Maps`}
+            >
+              <span>Map</span>
+              <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
         </div>
 
         {/* Location & Neighborhood */}
         <div className="flex items-center gap-1.5 text-xs text-stone-500 mb-3.5">
-          <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-          <span>{activity.location}</span>
+          <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+          <span className="font-medium text-stone-700">{activity.location}</span>
+          <span className="text-stone-300">·</span>
+          <span className="text-stone-400 font-mono text-[11px] truncate max-w-[240px] sm:max-w-md" title={formattedQuery}>
+            {formattedQuery}
+          </span>
         </div>
+
+        {/* Embedded Interactive Map Preview */}
+        {showMapPreview && (
+          <div className="mb-4 rounded-xl overflow-hidden border border-amber-200/80 bg-stone-100 shadow-inner">
+            <div className="bg-amber-50/80 px-3 py-1.5 border-b border-amber-200/60 flex items-center justify-between text-xs text-amber-900 font-medium">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-amber-700" />
+                <span>Destination: {formattedQuery}</span>
+              </span>
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-amber-800 text-[11px]"
+              >
+                Directions in Google Maps &rarr;
+              </a>
+            </div>
+            <iframe
+              title={`Map of ${formattedQuery}`}
+              width="100%"
+              height="200"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src={embedMapsUrl}
+              className="w-full"
+            />
+          </div>
+        )}
 
         {/* Description */}
         <p className="text-sm text-stone-700 leading-relaxed mb-4">

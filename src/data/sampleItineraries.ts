@@ -1227,5 +1227,474 @@ export const SAMPLE_ITINERARIES: Record<string, Itinerary> = {
       'Lunch is traditionally between 1:30 PM and 3:30 PM, and dinner rarely starts before 8:30 PM or 9:00 PM.',
       'Tap water in Barcelona is safe to drink, though many locals prefer bottled water due to high mineral content.'
     ]
+  },
+  mumbai: {
+    id: 'sample-mumbai',
+    cityName: 'Mumbai',
+    country: 'India',
+    tagline: 'The City of Dreams: Colonial Architecture, Coastal Sunsets & Street Food Culture',
+    overview: 'India’s bustling commercial and cinematic capital is an exhilarating archipelago of Victorian Gothic monuments, sea-facing boulevards, heritage Irani cafés, and vibrant coastal neighborhoods. This itinerary clusters South Mumbai heritage, Bandra suburbs, and island excursions for a smooth, traffic-smart exploration.',
+    bestTimeToVisit: 'November to February (pleasant dry breeze with cooler evenings, avoiding heavy monsoon rains).',
+    localCurrency: 'Indian Rupee (₹ / INR)',
+    language: 'Marathi & Hindi (English widely spoken across all shops, taxis, and restaurants)',
+    transitTip: 'Use black-and-yellow Kaali-Peeli cabs or Uber/Ola in South Mumbai (autos are not permitted south of Bandra/Sion). The Mumbai Metro lines 1, 2A, 7, and 3 (Aqua Line) connect major hubs quickly.',
+    dailyBudgetEst: '₹2,500 – ₹6,000 INR / day (~$30 – $75 USD, including heritage dining, museum entries & cabs)',
+    pace: 'Energetic & Cultural',
+    vibe: 'Marine Drive & Street Food',
+    createdAt: new Date().toISOString(),
+    days: [
+      {
+        dayNumber: 1,
+        title: 'Colonial Splendor, Kala Ghoda Arts & Marine Drive Sunset',
+        theme: 'Victorian Architecture, Heritage Cafés & the Queen’s Necklace',
+        dayHighlight: 'Sunset stroll along Marine Drive promenade watching the city lights ignite',
+        recommendedNeighborhood: 'Colaba, Fort & Churchgate (South Mumbai)',
+        schedule: [
+          {
+            id: 'm-1-1',
+            time: '08:30 AM – 10:30 AM',
+            timeOfDay: 'morning',
+            activity: 'Gateway of India & The Taj Mahal Palace',
+            description: 'Stand before the monumental basalt triumphal arch built to commemorate the royal landing in 1911, overlooking Mumbai Harbor. Walk across the plaza to admire the grand dome and moorish arches of the iconic 1903 Taj Mahal Palace hotel.',
+            location: 'Apollo Bandar, Colaba, Mumbai',
+            category: 'sightseeing',
+            duration: '2 hours',
+            costEstimate: 'Free plaza access (Tea inside Taj ₹1,500+)',
+            insiderTip: 'Visit before 9:00 AM to photograph the Gateway bathed in morning harbor mist without tour crowds.'
+          },
+          {
+            id: 'm-1-2',
+            time: '11:00 AM – 01:00 PM',
+            timeOfDay: 'morning',
+            activity: 'CSMVS Museum & Kala Ghoda Heritage Precinct',
+            description: 'Explore the Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (formerly Prince of Wales Museum), an Indo-Saracenic architectural masterpiece housing priceless Indian miniature paintings, Indus Valley artifacts, and tranquil palm gardens.',
+            location: '159-161 MG Road, Kala Ghoda, Fort, Mumbai',
+            category: 'culture',
+            duration: '2 hours',
+            costEstimate: '₹150 (Indians) / ₹700 (Foreigners)',
+            insiderTip: 'Pick up handmade block-print journals and brass artifacts at the Museum Shop near the fountain courtyard.'
+          },
+          {
+            id: 'm-1-3',
+            time: '01:15 PM – 02:45 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Parsi-Iranian Lunch at Britannia & Co. or Leopold Cafe',
+            description: 'Feast on legendary Parsi Berry Pulao, Sali Boti (lamb curry with crispy potato straws), and chilled raspberry soda at a heritage 1923 Parsi institution in Ballard Estate.',
+            location: 'Wakefield House, 11 Sprott Road, Ballard Estate, Fort, Mumbai',
+            category: 'food',
+            duration: '1.5 hours',
+            costEstimate: '₹600 – ₹1,200 INR',
+            insiderTip: 'Finish your meal with their signature fluffy Caramel Custard—a century-old recipe beloved by generations.'
+          },
+          {
+            id: 'm-1-4',
+            time: '03:15 PM – 05:00 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Chhatrapati Shivaji Maharaj Terminus (CST) & Victorian Gothic Walk',
+            description: 'Marvel at the UNESCO World Heritage Victorian Gothic railway headquarters with its stone gargoyles, stained glass windows, and grand central dome. Continue past the Flora Fountain and David Sassoon Library.',
+            location: 'Chhatrapati Shivaji Maharaj Terminus, DN Road, Fort, Mumbai',
+            category: 'culture',
+            duration: '1.75 hours',
+            costEstimate: 'Free exterior viewing / ₹200 heritage gallery',
+            insiderTip: 'Cross the skywalk directly across from the terminus for an elevated, unobstructed full-facade photo.'
+          },
+          {
+            id: 'm-1-5',
+            time: '05:30 PM – 08:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Marine Drive Promenade & Sunset at Nariman Point',
+            description: 'Join thousands of Mumbaikars on the sweeping 3.6-kilometer sea-facing promenade nicknamed "The Queen’s Necklace". Feel the refreshing Arabian Sea spray, watch the sun sink into the ocean, and enjoy a roasted spiced corn (bhutta).',
+            location: 'Marine Drive Promenade, Churchgate, Mumbai',
+            category: 'relaxation',
+            duration: '3 hours',
+            costEstimate: 'Free (Street bhutta/chai: ₹50 – ₹100 INR)',
+            insiderTip: 'Sit on the tetrapods near the southern end (Nariman Point) as dusk sets in to see the shoreline lights curve like a diamond necklace.'
+          }
+        ]
+      },
+      {
+        dayNumber: 2,
+        title: 'Coastal Shrines, Bandra Heritage & Suburb Sunsets',
+        theme: 'Sea Shrines, Portuguese Bungalows & Coastal Cafés',
+        dayHighlight: 'Catching Arabian sea breeze at Bandra Bandstand Fort looking at the Sealink',
+        recommendedNeighborhood: 'Worli & Bandra West',
+        schedule: [
+          {
+            id: 'm-2-1',
+            time: '08:30 AM – 10:30 AM',
+            timeOfDay: 'morning',
+            activity: 'Haji Ali Dargah & Mahalaxmi Temple',
+            description: 'Walk across the narrow coastal causeway jutting 500 meters into the Arabian Sea to visit the 15th-century Indo-Islamic marble shrine of Pir Haji Ali Shah Bukhari, surrounded entirely by surging ocean waves at high tide.',
+            location: 'Dargah Road, Haji Ali, Worli Bay, Mumbai',
+            category: 'culture',
+            duration: '2 hours',
+            costEstimate: 'Free entry',
+            insiderTip: 'Check tide schedules before visiting; the causeway is submerged during spring high tides.'
+          },
+          {
+            id: 'm-2-2',
+            time: '11:00 AM – 12:30 PM',
+            timeOfDay: 'morning',
+            activity: 'Dhobi Ghat Open-Air Laundry & Bandra-Worli Sea Link Drive',
+            description: 'Observe the world-famous open-air visual spectacle of Mahalaxmi Dhobi Ghat, where hundreds of washermen clean linens in concrete pens. Then cross the dramatic 8-lane cable-stayed Bandra-Worli Sea Link over Mahim Bay.',
+            location: 'Mahalaxmi Station Viewpoint & Bandra-Worli Sea Link, Mumbai',
+            category: 'sightseeing',
+            duration: '1.5 hours',
+            costEstimate: 'Free viewpoint (Cab toll: ₹100 INR)',
+            insiderTip: 'The bridge over Mahalaxmi railway station offers the clearest elevated view looking directly into the washing pens.'
+          },
+          {
+            id: 'm-2-3',
+            time: '01:00 PM – 02:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Coastal Konkan & Mangalorean Seafood Lunch',
+            description: 'Savor butter garlic crab, crispy Bombil (Bombay duck fry), Neer Dosas, and fragrant fish gassi curry at one of Bandra’s celebrated coastal seafood kitchens.',
+            location: 'Gajalee, Koliwada / Trishna / Bastian, Bandra West, Mumbai',
+            category: 'food',
+            duration: '1.5 hours',
+            costEstimate: '₹800 – ₹2,000 INR',
+            insiderTip: 'Wash your meal down with Solkadhi—a refreshing pink digestif made of kokum fruit and fresh coconut milk.'
+          },
+          {
+            id: 'm-2-4',
+            time: '03:30 PM – 05:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Ranwar Village & Mount Mary Basilica',
+            description: 'Wander the narrow lanes of Ranwar Village, an old East Indian hamlet dotted with vibrant street art murals and Portuguese-style wooden cottages. Climb up to the 1904 Mount Mary Basilica overlooking the ocean.',
+            location: 'Mount Mary Road, Bandra West, Mumbai',
+            category: 'culture',
+            duration: '2 hours',
+            costEstimate: 'Free entry',
+            insiderTip: 'The small wax-candle stalls outside Mount Mary sell miniature wax figurines representing prayers for homes, travel, and health.'
+          },
+          {
+            id: 'm-2-5',
+            time: '06:00 PM – 08:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Bandra Bandstand, Castella de Aguada & Carter Road',
+            description: 'Climb the 1640 Portuguese fort ramparts at Land’s End for panoramic views of the illuminated Bandra-Worli Sea Link. Stroll past famous Bollywood actor residences and unwind with gelato along Carter Road promenade.',
+            location: 'Castella de Aguada (Bandra Fort), Bandstand, Bandra West, Mumbai',
+            category: 'nature',
+            duration: '2.5 hours',
+            costEstimate: 'Free',
+            insiderTip: 'Arrive at the fort 30 minutes before sunset to secure a perch on the stone arches facing the bridge.'
+          }
+        ]
+      },
+      {
+        dayNumber: 3,
+        title: 'Ancient Island Caves, Old Bazaars & Chowpatty Street Food',
+        theme: 'Rock-Cut World Heritage, Spice Markets & Iconic Mumbai Chaat',
+        dayHighlight: 'Savoring hot Pav Bhaji and crisp Sev Puri on the sands of Girgaon Chowpatty at dusk',
+        recommendedNeighborhood: 'Elephanta Island & Marine Lines',
+        schedule: [
+          {
+            id: 'm-3-1',
+            time: '08:30 AM – 12:30 PM',
+            timeOfDay: 'morning',
+            activity: 'Elephanta Island Rock-Cut Caves (UNESCO Heritage)',
+            description: 'Board a harbor ferry from the Gateway of India across Mumbai harbor to Gharapuri Island. Ascend the stone steps to explore the 5th-century rock-cut cave temples, centered around the monumental 20-foot three-faced Trimurti Shiva sculpture.',
+            location: 'Elephanta Caves, Gharapuri Island, Mumbai Harbor',
+            category: 'culture',
+            duration: '4 hours (includes 1-hour ferry each way)',
+            costEstimate: '₹260 ferry return + ₹40 (Indians) / ₹600 (Foreigners) entry',
+            insiderTip: 'Take the first ferry out at 9:00 AM from Gateway of India to explore the dim stone halls in cool morning tranquility before the sun warms the rock.'
+          },
+          {
+            id: 'm-3-2',
+            time: '01:00 PM – 02:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Irani Chai & Bun Maska at Kyani & Co.',
+            description: 'Step into Mumbai’s oldest operating Irani café (established 1904). Sip hot, sweet kadak chai paired with butter-stuffed bun maska and chicken puff pastries under antique ceiling fans.',
+            location: 'Jermahal Estate, 657 JSS Road, Dhobi Talao, Marine Lines, Mumbai',
+            category: 'food',
+            duration: '1.5 hours',
+            costEstimate: '₹150 – ₹350 INR',
+            insiderTip: 'Dip your warm bun maska directly into the sweet Irani chai—the classic local ritual.'
+          },
+          {
+            id: 'm-3-3',
+            time: '03:00 PM – 05:00 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Crawford Market & Mangaldas Fabric Bazaar',
+            description: 'Explore the Norman-Gothic Crawford Market (Mahatma Jyotiba Phule Mandai) designed with stone bas-reliefs by Lockwood Kipling. Walk into adjacent Mangaldas Market, Mumbai’s bustling textile wonderland overflowing with silks and block prints.',
+            location: 'Crawford Market, Dhobi Talao, Chhatrapati Shivaji Terminus Area, Mumbai',
+            category: 'shopping',
+            duration: '2 hours',
+            costEstimate: 'Free entry (spices & Alphonso mangoes seasonal)',
+            insiderTip: 'Buy authentic Indian spices and whole cinnamon sticks from the central spice lanes inside Crawford.'
+          },
+          {
+            id: 'm-3-4',
+            time: '05:30 PM – 08:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Girgaon Chowpatty Sunset & Street Food Feast',
+            description: 'Dig your toes into the sand at historic Chowpatty beach as the sun sets over the Arabian Sea. Tour the open stalls for piping hot butter Pav Bhaji, crispy Bhel Puri, spicy Pani Puri, and creamy Kulfi falooda.',
+            location: 'Girgaon Chowpatty Beach, Netaji Subhash Chandra Bose Road, Mumbai',
+            category: 'food',
+            duration: '3 hours',
+            costEstimate: '₹200 – ₹500 INR for full food tour',
+            insiderTip: 'Order from Sharma Bhel Puri or Badshah Kulfi for hygienically prepared, mouth-watering street delicacies.'
+          }
+        ]
+      },
+      {
+        dayNumber: 4,
+        title: 'Green Oasis: Sanjay Gandhi National Park & Kanheri Caves',
+        theme: 'Ancient Buddhist Monasteries in the Forest',
+        dayHighlight: 'Standing in Cave 3 at Kanheri amidst 2,000-year-old Buddhist prayer halls',
+        recommendedNeighborhood: 'Borivali & Northern Suburbs',
+        schedule: [
+          {
+            id: 'm-4-1',
+            time: '08:00 AM – 11:30 AM',
+            timeOfDay: 'morning',
+            activity: 'Kanheri Caves Buddhist Rock Monasteries',
+            description: 'Journey deep inside Sanjay Gandhi National Park to explore over 100 ancient basalt rock-cut caves carved between the 1st century BCE and 10th century CE by Buddhist monks.',
+            location: 'Kanheri Caves, Sanjay Gandhi National Park, Borivali East, Mumbai',
+            category: 'culture',
+            duration: '3.5 hours',
+            costEstimate: '₹85 park + ₹40 (Indians) / ₹300 (Foreigners) caves',
+            insiderTip: 'Rent a bicycle at the national park entrance gate to enjoy a peaceful 6-kilometer ride under the green forest canopy.'
+          },
+          {
+            id: 'm-4-2',
+            time: '12:30 PM – 02:00 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Traditional Maharashtrian Thali Lunch',
+            description: 'Feast on authentic Maharashtrian specialties including spicy Missal Pav, Kothimbir Vadi, Bhakri, Pitla, and sweet fragrant Shrikhand.',
+            location: 'Aaswad or Prakash Shakahari Upahar Kendra, Dadar West, Mumbai',
+            category: 'food',
+            duration: '1.5 hours',
+            costEstimate: '₹250 – ₹500 INR',
+            insiderTip: 'Aaswad won international praise for its Misal Pav—pair it with fresh butter milk (taak).'
+          },
+          {
+            id: 'm-4-3',
+            time: '03:00 PM – 05:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Global Vipassana Pagoda',
+            description: 'Visit the world’s largest pillarless stone dome pagoda, glowing golden over Gorai Creek. The meditation hall comfortably seats over 8,000 practitioners under Burmese-style architecture.',
+            location: 'Global Vipassana Pagoda, Essel World Road, Gorai, Mumbai',
+            category: 'culture',
+            duration: '2.5 hours',
+            costEstimate: 'Free entry',
+            insiderTip: 'Enjoy the tranquil garden paintings depicting the life and teachings of Gautam Buddha.'
+          },
+          {
+            id: 'm-4-4',
+            time: '06:30 PM – 09:00 PM',
+            timeOfDay: 'evening',
+            activity: 'Juhu Beach Sunset & Mumbai Street Chaat',
+            description: 'Unwind on the famous sands of Juhu beach watching planes ascend over the Arabian Sea, accompanied by fresh roasted peanuts and gola (shaved ice).',
+            location: 'Juhu Tara Road, Juhu Beach, Vile Parle West, Mumbai',
+            category: 'relaxation',
+            duration: '2.5 hours',
+            costEstimate: '₹150 – ₹300 INR',
+            insiderTip: 'Stop by Prithvi Café nearby for an Irish coffee and fresh stuffed parathas under the fairy lights.'
+          }
+        ]
+      },
+      {
+        dayNumber: 5,
+        title: 'Art, Theatre & Versova Bohemian Coast',
+        theme: 'Independent Theatre, Coastal Villages & Modern Mumbai',
+        dayHighlight: 'Catching an evening play and cutting chai at legendary Prithvi Theatre',
+        recommendedNeighborhood: 'Juhu & Versova',
+        schedule: [
+          {
+            id: 'm-5-1',
+            time: '09:00 AM – 11:30 AM',
+            timeOfDay: 'morning',
+            activity: 'Versova Koliwada (Historic Fishing Village)',
+            description: 'Explore the traditional fishing community settlement that predates the modern metropolis. Walk past brightly painted trawlers, drying nets, and wooden coastal houses.',
+            location: 'Versova Village, Andheri West, Mumbai',
+            category: 'culture',
+            duration: '2.5 hours',
+            costEstimate: 'Free',
+            insiderTip: 'Visit the morning fish auction at Versova jetty to experience true Mumbai maritime heritage.'
+          },
+          {
+            id: 'm-5-2',
+            time: '12:00 PM – 02:00 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Artisanal Lunch at Bandra or Juhu Coastal Bistros',
+            description: 'Enjoy wood-fired sourdough pizzas, fresh salads, and local artisanal cold brews at one of suburban Mumbai’s leafy designer cafés.',
+            location: 'Silver Beach Café or Olive Bar & Kitchen, Juhu / Bandra, Mumbai',
+            category: 'food',
+            duration: '2 hours',
+            costEstimate: '₹900 – ₹1,800 INR',
+            insiderTip: 'Sit in the outdoor garden patio to soak in the relaxed coastal vibe.'
+          },
+          {
+            id: 'm-5-3',
+            time: '03:00 PM – 05:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Boutique Shopping & Art Galleries of Bandra',
+            description: 'Browse bohemian lifestyle boutiques on Pali Hill and designer concept stores featuring sustainable Indian organic cottons and indie perfumes.',
+            location: 'Pali Village, Bandra West, Mumbai',
+            category: 'shopping',
+            duration: '2.5 hours',
+            costEstimate: 'Free browsing',
+            insiderTip: 'Kulture Shop features graphic prints and quirky accessories created by modern Indian illustrators.'
+          },
+          {
+            id: 'm-5-4',
+            time: '06:00 PM – 09:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Prithvi Theatre Performance & Garden Café',
+            description: 'Experience an intimate evening at India’s premier performing arts institution, founded by Shashi Kapoor in memory of Prithviraj Kapoor. Enjoy theatre followed by their legendary hot Irish coffee in the outdoor courtyard.',
+            location: '20 Janki Kutir, Juhu Church Road, Juhu, Mumbai',
+            category: 'culture',
+            duration: '3.5 hours',
+            costEstimate: '₹300 – ₹600 INR for show tickets',
+            insiderTip: 'Book theatre tickets in advance on BookMyShow; shows frequently sell out within hours.'
+          }
+        ]
+      },
+      {
+        dayNumber: 6,
+        title: 'Industrial Renaissance: Lower Parel Mills & Skyline Dining',
+        theme: 'Textile Mill Transformations, Modern Art & Rooftops',
+        dayHighlight: 'Cocktails and panoramic skyline vistas from a 40th-floor rooftop over the Arabian Sea',
+        recommendedNeighborhood: 'Lower Parel & Worli',
+        schedule: [
+          {
+            id: 'm-6-1',
+            time: '10:00 AM – 12:30 PM',
+            timeOfDay: 'morning',
+            activity: 'High Street Phoenix & Palladium Heritage Mills Walk',
+            description: 'Explore the architectural redevelopment of South Mumbai’s historic 19th-century textile mills into upscale cultural spaces, art installations, and luxury boutiques.',
+            location: 'Senapati Bapat Marg, Lower Parel, Mumbai',
+            category: 'shopping',
+            duration: '2.5 hours',
+            costEstimate: 'Free entry',
+            insiderTip: 'Notice the preserved original brick chimneys and wrought-iron structural columns from the 1880s textile boom.'
+          },
+          {
+            id: 'm-6-2',
+            time: '01:00 PM – 02:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Modern Indian Gastronomy Lunch',
+            description: 'Experience innovative pan-Indian fusion dining where classic regional spices are reimagined with modern culinary artistry.',
+            location: 'The Bombay Canteen or Farzi Café, Kamala Mills, Lower Parel, Mumbai',
+            category: 'food',
+            duration: '1.5 hours',
+            costEstimate: '₹1,000 – ₹2,200 INR',
+            insiderTip: 'Don’t miss Bombay Canteen’s signature Eggs Kejriwal or Guava Tan-Ta-Tan dessert.'
+          },
+          {
+            id: 'm-6-3',
+            time: '03:30 PM – 05:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Nehru Centre Art Gallery & Planetarium',
+            description: 'Visit the cylindrical modern landmark dedicated to astronomical exhibitions, scientific pavilions, and rotating contemporary Indian painting galleries.',
+            location: 'Dr. Annie Besant Road, Worli, Mumbai',
+            category: 'culture',
+            duration: '2 hours',
+            costEstimate: '₹100 – ₹200 INR',
+            insiderTip: 'Check the planetarium show timings in English for an immersive celestial journey.'
+          },
+          {
+            id: 'm-6-4',
+            time: '06:30 PM – 09:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Skyline Cocktails at Aer Lounge or Dome',
+            description: 'Celebrate the dazzling night skyline of Mumbai from the open-air rooftop of Aer (34th floor of Four Seasons) or Dome at Marine Drive, sipping craft cocktails over the city lights.',
+            location: 'Aer Lounge, Four Seasons Hotel, Dr. E. Moses Road, Worli, Mumbai',
+            category: 'relaxation',
+            duration: '3 hours',
+            costEstimate: '₹1,500 – ₹3,500 INR',
+            insiderTip: 'Smart casual dress code is strictly enforced; reservations recommended for weekend evenings.'
+          }
+        ]
+      },
+      {
+        dayNumber: 7,
+        title: 'Art Deco Heritage & Historic Fort District Finale',
+        theme: 'World Heritage Art Deco Ensembles & Historic High Tea',
+        dayHighlight: 'Admiring the world’s second largest collection of Art Deco buildings along Oval Maidan',
+        recommendedNeighborhood: 'Churchgate & Oval Maidan',
+        schedule: [
+          {
+            id: 'm-7-1',
+            time: '08:30 AM – 11:00 AM',
+            timeOfDay: 'morning',
+            activity: 'Oval Maidan Art Deco & Victorian Architectural Walk',
+            description: 'Stand at Oval Maidan where a green cricket pitch divides two UNESCO eras: Victorian Gothic stone towers on the east and the world’s second-largest cluster of pastel Art Deco residential buildings on the west.',
+            location: 'Oval Maidan, Maharshi Karve Road, Churchgate, Mumbai',
+            category: 'sightseeing',
+            duration: '2.5 hours',
+            costEstimate: 'Free',
+            insiderTip: 'Look up at the nautical motifs, sweeping curved balconies, and ziggurat rooflines along Maharshi Karve Road.'
+          },
+          {
+            id: 'm-7-2',
+            time: '11:30 AM – 01:00 PM',
+            timeOfDay: 'morning',
+            activity: 'Horniman Circle & Asiatic Society Library',
+            description: 'Walk through the classical circular colonnade of Horniman Circle to the grand neo-classical white staircase of the Asiatic Society Town Hall (1833), holding rare Sanskrit manuscripts and ancient coins.',
+            location: 'Horniman Circle, Shahid Bhagat Singh Road, Fort, Mumbai',
+            category: 'culture',
+            duration: '1.5 hours',
+            costEstimate: 'Free',
+            insiderTip: 'The grand white steps are an iconic photo location featured in dozens of Bollywood cinema sequences.'
+          },
+          {
+            id: 'm-7-3',
+            time: '01:30 PM – 03:30 PM',
+            timeOfDay: 'afternoon',
+            activity: 'Traditional South Indian Lunch at Matunga',
+            description: 'Travel to Matunga, Mumbai’s South Indian cultural haven, for crispy Mysore Masala Dosas, fluffy ghee podi idlis, and foaming filter coffee.',
+            location: 'Café Madras or Ram Ashraya, Bhandarkar Road, Matunga, Mumbai',
+            category: 'food',
+            duration: '2 hours',
+            costEstimate: '₹200 – ₹450 INR',
+            insiderTip: 'Order the Pineapple Sheera dessert at Ram Ashraya—warm, buttery, and unforgettable.'
+          },
+          {
+            id: 'm-7-4',
+            time: '05:00 PM – 08:30 PM',
+            timeOfDay: 'evening',
+            activity: 'Sunset at Gateway of India & Sea Lounge High Tea',
+            description: 'Conclude your journey where it began: overlooking Mumbai Harbor with luxurious afternoon high tea at the Taj Mahal Palace Sea Lounge, listening to live piano over silver tea sets.',
+            location: 'The Sea Lounge, The Taj Mahal Palace, Colaba, Mumbai',
+            category: 'relaxation',
+            duration: '3.5 hours',
+            costEstimate: '₹2,500 – ₹4,000 INR per person',
+            insiderTip: 'Request a window table overlooking the Gateway and the harbor boats for the ultimate celebratory Mumbai farewell.'
+          }
+        ]
+      }
+    ],
+    packingEssentials: [
+      'Slip-on shoes for temple visits, cave climbs, and beach strolls',
+      'Breathable cotton or linen clothing suited for coastal humidity',
+      'Small hand sanitizer and tissue pack for street food exploration',
+      'Lightweight umbrella or rain-jacket (especially from June through October)'
+    ],
+    culinaryHighlights: [
+      {
+        name: 'Vada Pav (The Bombay Burger)',
+        description: 'Spiced mashed potato fritter nestled inside a soft pav roll with garlic red chutney and fried green chili.',
+        whereToTry: 'Aaram Vada Pav opposite CST Station or Ashok Vada Pav near Kirti College'
+      },
+      {
+        name: 'Mumbai Pav Bhaji',
+        description: 'Mashed spiced tomato-vegetable curry simmered with excessive dollops of Amul butter on an iron griddle, served with toasted pav rolls.',
+        whereToTry: 'Sardar Refreshments in Tardeo or Cannon Pav Bhaji opposite CST'
+      },
+      {
+        name: 'Parsi Berry Pulao & Caramel Custard',
+        description: 'Fragrant saffron basmati rice topped with tart Iranian barberries, caramelized onions, tender meat, and sweet custard.',
+        whereToTry: 'Britannia & Co. Restaurant in Ballard Estate'
+      }
+    ],
+    practicalTips: [
+      'In South Mumbai (south of Bandra/Mahim), auto-rickshaws do not run; take metered black-and-yellow Kaali-Peeli taxis or app cabs (Uber/Ola).',
+      'Peak rush hours on local trains are 8:30 AM–11:00 AM towards South Mumbai and 5:30 PM–8:30 PM towards the northern suburbs; avoid taking heavy luggage during these windows.',
+      'Always drink bottled mineral water (Kinley/Bisleri) and eat street food at high-turnover busy stalls favored by locals.'
+    ]
   }
 };
+
