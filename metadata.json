@@ -1,0 +1,6 @@
+{
+  "name": "Wander3 - 3-Day Travel Itinerary Planner",
+  "description": "Generate clean, structured 3-day travel itineraries for any city worldwide with curated schedules, insider tips, and route details.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
